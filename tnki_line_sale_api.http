@@ -1,6 +1,0 @@
-@tnki_line_sale_api_HostAddress = http://localhost:5023
-
-GET {{tnki_line_sale_api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
