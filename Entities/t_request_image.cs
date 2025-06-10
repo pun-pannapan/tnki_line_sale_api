@@ -1,4 +1,4 @@
-﻿namespace tnki_line_sale_apiEntities
+﻿namespace tnki_line_sale_api.Entities
 {
     public class t_request_image
     {
