@@ -261,15 +261,15 @@ namespace tnki_line_sale_api.Repositories
         {
             const string sql = @"select [prod_guid] as prodGuid
                                   ,[prod_code] as prodCode
-                                  ,[prod_name1] as prodName01
+                                  ,[prod_name] as prodName
                                   ,[prod_desc] as prodDesc
-                                  ,[prod_image] as prodImage
-                                  ,[prod_price] as prodPrice
+                                  ,[prod_image] as prodImage    
                                   ,[prod_packsize] as prodPackSize
+                                  ,[prod_status] as prodStatus
+                                  ,[prod_remark] as prodRemark
                                   ,[prod_seq] as prodSeq
                                   ,[prod_external_link] as prodExternalLink
-                                  ,[prod_status] as prodStatus
-                                  ,[prod_remark] as prodRemark                                  
+                                  ,[prod_price] as prodPrice                               
                                 from m_product as req                                  
                                 where prod_status= @status 
                                 order by prod_seq";
@@ -282,24 +282,23 @@ namespace tnki_line_sale_api.Repositories
 
         public List<ProductModel> getProductByProdCode(SqlConnection dbCon, int prodCode)
         {
-            const string sql = @"[prod_guid]
-                                  ,[prod_code]
-                                  ,[prod_name1]
-                                  ,[prod_desc]
-                                  ,[prod_image]
-                                  ,[prod_packsize]
-                                  ,[prod_status]
-                                  ,[prod_remark]
-                                  ,[prod_seq]
-                                  ,[prod_external_link]
-                                  ,[prod_price]
-                              FROM [TNKILineSale].[dbo].[m_product]
-                                                        where prod_code = @prodCode 
-                                                        order by dist_code";
+            const string sql = @"select [prod_guid] as prodGuid
+                                  ,[prod_code] as prodCode
+                                  ,[prod_name] as prodName
+                                  ,[prod_desc] as prodDesc
+                                  ,[prod_image] as prodImage    
+                                  ,[prod_packsize] as prodPackSize
+                                  ,[prod_status] as prodStatus
+                                  ,[prod_remark] as prodRemark
+                                  ,[prod_seq] as prodSeq
+                                  ,[prod_external_link] as prodExternalLink
+                                  ,[prod_price] as prodPrice
+                              FROM m_product
+                                                        where prod_code = @prodCode ";
 
             return dbCon.Query<ProductModel>(sql, new
             {
-                prod_code = prodCode
+                prodCode = prodCode
             }).ToList();
         }
 

@@ -395,15 +395,15 @@ namespace tnki_line_sale_api.Controllers
 
 
         [HttpGet("getProductByProdCode")]
-        public IActionResult getProductByProdId(int prodId)
+        public IActionResult getProductByProdId(int prodCode)
         {
             try
             {
-                _logger.LogInformation("getDistByProvId provId:" + prodId);
+                _logger.LogInformation("getDistByProvId provId:" + prodCode);
 
                 ConnectionHandle.openConnection(_dbCon);
                 CampaignService serv = new CampaignService(_logger);
-                List<ProductModel> lstData = serv.getProductByProdCode(_dbCon, prodId);
+                List<ProductModel> lstData = serv.getProductByProdCode(_dbCon, prodCode);
                 return Ok(lstData);
             }
             catch (Exception ex)
