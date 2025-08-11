@@ -280,6 +280,29 @@ namespace tnki_line_sale_api.Repositories
             }).ToList();
         }
 
+        public List<ProductModel> getProductByProdCode(SqlConnection dbCon, int prodCode)
+        {
+            const string sql = @"[prod_guid]
+                                  ,[prod_code]
+                                  ,[prod_name1]
+                                  ,[prod_desc]
+                                  ,[prod_image]
+                                  ,[prod_packsize]
+                                  ,[prod_status]
+                                  ,[prod_remark]
+                                  ,[prod_seq]
+                                  ,[prod_external_link]
+                                  ,[prod_price]
+                              FROM [TNKILineSale].[dbo].[m_product]
+                                                        where prod_code = @prodCode 
+                                                        order by dist_code";
+
+            return dbCon.Query<ProductModel>(sql, new
+            {
+                prod_code = prodCode
+            }).ToList();
+        }
+
         public t_request getRequestForEditByGuid(SqlConnection dbCon, Guid req_guid)
         {
             const string sql = @"select * from t_request

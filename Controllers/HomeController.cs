@@ -263,7 +263,7 @@ namespace tnki_line_sale_api.Controllers
 
         }
         
-                [Authorize]
+        [Authorize]
         [HttpGet("insertVisitLog")]
         public IActionResult insertVisitLog(string state)
         {
@@ -385,6 +385,31 @@ namespace tnki_line_sale_api.Controllers
             {
                 ConnectionHandle.closeConnection(_dbCon);
                 _logger.LogError("getListProduct error: " + ConvertUtil.obj2string(ex));
+                return BadRequest(ex.Message);
+            }
+            finally
+            {
+                ConnectionHandle.closeConnection(_dbCon);
+            }
+        }
+
+
+        [HttpGet("getProductByProdId")]
+        public IActionResult getProductByProdId(int prodId)
+        {
+            try
+            {
+                _logger.LogInformation("getDistByProvId provId:" + prodId);
+
+                ConnectionHandle.openConnection(_dbCon);
+                CampaignService serv = new CampaignService(_logger);
+                List<ProductModel> lstData = serv.getProductByProdCode(_dbCon, prodId);
+                return Ok(lstData);
+            }
+            catch (Exception ex)
+            {
+                ConnectionHandle.closeConnection(_dbCon);
+                _logger.LogError("getDistByProvId error: " + ConvertUtil.obj2string(ex));
                 return BadRequest(ex.Message);
             }
             finally

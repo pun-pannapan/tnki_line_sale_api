@@ -442,6 +442,17 @@ namespace tnki_line_sale_api.Services
 
             return resp;
         }
+        internal List<ProductModel> getProductByProdCode(SqlConnection dbCon, int prodCode)
+        {
+            CampaignRepository repo = new CampaignRepository();
+            if (prodCode == 0)
+            {
+                throw new Exception("ข้อมูลผลิตภัณฑ์ไม่ถูกต้อง");
+            }
+            List<ProductModel> resp = repo.getProductByProdCode(dbCon, prodCode);
+            return resp;
+        }
+
         internal void uploadReceipt(SqlConnection dbCon, Guid cust_guid, Guid store_guid, List<string> lstFileName)
         {
 
