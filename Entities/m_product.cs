@@ -7,6 +7,7 @@
         public string prod_name1 { get; set; }
         public string prod_name2 { get; set; }
         public string prod_image { get; set; }
+        public string prod_price { get; set; }
         public string prod_packsize { get; set; }
         public string prod_status { get; set; }
         public string prod_remark { get; set; }

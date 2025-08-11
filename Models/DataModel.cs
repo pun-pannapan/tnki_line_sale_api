@@ -131,6 +131,7 @@
         public string prodName01 { get; set; }
         public string prodName02 { get; set; }
         public string prodImage { get; set; }
+        public decimal prodPrice { get; set; }
         public string prodPackSize { get; set; }
         public string prodStatus { get; set; }
         public string prodRemark { get; set; }

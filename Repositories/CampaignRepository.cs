@@ -264,11 +264,12 @@ namespace tnki_line_sale_api.Repositories
                                   ,[prod_name1] as prodName01
                                   ,[prod_name2] as prodName02
                                   ,[prod_image] as prodImage
+                                  ,[prod_price] as prodPrice
                                   ,[prod_packsize] as prodPackSize
                                   ,[prod_seq] as prodSeq
                                   ,[prod_external_link] as prodExternalLink
                                   ,[prod_status] as prodStatus
-                                  ,[prod_remark] as prodRemark
+                                  ,[prod_remark] as prodRemark                                  
                                 from m_product as req                                  
                                 where prod_status= @status 
                                 order by prod_seq";
