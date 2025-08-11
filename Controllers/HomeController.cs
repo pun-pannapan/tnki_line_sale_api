@@ -394,7 +394,7 @@ namespace tnki_line_sale_api.Controllers
         }
 
 
-        [HttpGet("getProductByProdId")]
+        [HttpGet("getProductByProdCode")]
         public IActionResult getProductByProdId(int prodId)
         {
             try
