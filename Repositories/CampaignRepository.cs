@@ -262,7 +262,7 @@ namespace tnki_line_sale_api.Repositories
             const string sql = @"select [prod_guid] as prodGuid
                                   ,[prod_code] as prodCode
                                   ,[prod_name1] as prodName01
-                                  ,[prod_name2] as prodName02
+                                  ,[prod_desc] as prodDesc
                                   ,[prod_image] as prodImage
                                   ,[prod_price] as prodPrice
                                   ,[prod_packsize] as prodPackSize

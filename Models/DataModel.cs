@@ -129,7 +129,7 @@
         public Guid prodGuid { get; set; }
         public string prodCode { get; set; }
         public string prodName01 { get; set; }
-        public string prodName02 { get; set; }
+        public string prodDesc { get; set; }
         public string prodImage { get; set; }
         public decimal prodPrice { get; set; }
         public string prodPackSize { get; set; }
