@@ -442,14 +442,14 @@ namespace tnki_line_sale_api.Services
 
             return resp;
         }
-        internal List<ProductModel> getProductByProdCode(SqlConnection dbCon, int prodCode)
+        internal ProductModel getProductByProdCode(SqlConnection dbCon, int prodCode)
         {
             CampaignRepository repo = new CampaignRepository();
             if (prodCode == 0)
             {
                 throw new Exception("ข้อมูลผลิตภัณฑ์ไม่ถูกต้อง");
             }
-            List<ProductModel> resp = repo.getProductByProdCode(dbCon, prodCode);
+            ProductModel resp = repo.getProductByProdCode(dbCon, prodCode);
             return resp;
         }
 

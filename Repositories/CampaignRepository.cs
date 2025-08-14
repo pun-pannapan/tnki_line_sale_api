@@ -280,7 +280,7 @@ namespace tnki_line_sale_api.Repositories
             }).ToList();
         }
 
-        public List<ProductModel> getProductByProdCode(SqlConnection dbCon, int prodCode)
+        public ProductModel getProductByProdCode(SqlConnection dbCon, int prodCode)
         {
             const string sql = @"select [prod_guid] as prodGuid
                                   ,[prod_code] as prodCode
@@ -299,7 +299,7 @@ namespace tnki_line_sale_api.Repositories
             return dbCon.Query<ProductModel>(sql, new
             {
                 prodCode = prodCode
-            }).ToList();
+            }).FirstOrDefault();
         }
 
         public t_request getRequestForEditByGuid(SqlConnection dbCon, Guid req_guid)

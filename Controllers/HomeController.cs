@@ -403,8 +403,8 @@ namespace tnki_line_sale_api.Controllers
 
                 ConnectionHandle.openConnection(_dbCon);
                 CampaignService serv = new CampaignService(_logger);
-                List<ProductModel> lstData = serv.getProductByProdCode(_dbCon, prodCode);
-                return Ok(lstData);
+                ProductModel data = serv.getProductByProdCode(_dbCon, prodCode);
+                return Ok(data);
             }
             catch (Exception ex)
             {
