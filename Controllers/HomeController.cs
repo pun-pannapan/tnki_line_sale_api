@@ -393,7 +393,7 @@ namespace tnki_line_sale_api.Controllers
             }
         }
 
-
+         
         [HttpGet("getProductByProdCode")]
         public IActionResult getProductByProdId(int prodCode)
         {
